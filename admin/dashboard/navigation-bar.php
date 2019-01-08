@@ -8,7 +8,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Destinations</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">View Destination</a>
-          <a class="dropdown-item" href="#">Add Destination</a>
+          <a class="dropdown-item" href="add-destination.php">Add Destination</a>
           <a class="dropdown-item" href="#">Edit Destination</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Delete Destination</a>
