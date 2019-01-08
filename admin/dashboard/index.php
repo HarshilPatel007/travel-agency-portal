@@ -23,6 +23,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../styles/style.css">
     <link rel="stylesheet" href="../../styles/bootstrap.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Charm|Dosis|ZCOOL+XiaoWei|Thasadith|Montserrat|Oswald" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Admin Dashboard</title>
@@ -32,17 +34,14 @@
 
 <body>
     
-
+<!--
 <h3> User ID  : <?php echo $_SESSION['user_id']; ?> </h3>
 <h3> Username : <?php echo $_SESSION['name']; ?> </h3>
 <h3> Email ID : <?php echo $_SESSION['email']; ?> </h3>
-<h1>Hello World, yet another change for testing purpose</h1>
-
-
-<form id="logoutform" action="logout.php" method="post">
-<button type="submit" name="logoutbtn" class="btn btn-lg btn-primary btn-block mb-1">Logout</button>
-</form>
-
+-->
+<!-- Start-Navigationbar -->
+<?php include_once "navigation-bar.php"; ?>
+<!-- End-Navigationbar -->
 
 
 
