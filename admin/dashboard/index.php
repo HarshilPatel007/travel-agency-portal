@@ -33,9 +33,9 @@
 <body>
     
 
-<h3> User ID  : <?php echo $_SESSION['user_id']; ?> </h3></br>
-<h3> Username : <?php echo $_SESSION['name']; ?> </h3></br>
-<h3> Email ID : <?php echo $_SESSION['email']; ?> </h3></br>
+<h3> User ID  : <?php echo $_SESSION['user_id']; ?> </h3>
+<h3> Username : <?php echo $_SESSION['name']; ?> </h3>
+<h3> Email ID : <?php echo $_SESSION['email']; ?> </h3>
 
 
 <form id="logoutform" action="logout.php" method="post">
