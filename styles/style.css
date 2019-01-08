@@ -1,0 +1,232 @@
+*{
+  padding: 0%;
+  margin: 0%;
+}
+
+body{
+  padding: 0%;
+  margin: 0%;
+}
+
+/*
+Start Navigation Bar
+*/
+.navbar .navbar-brand{
+  font-size: 30px;
+  font-family: 'Charm', cursive;
+}
+.navbar .nav .nav-item .nav-link{
+  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
+  color: #080d15;
+}
+/*
+End Navigation Bar
+*/
+
+
+/*
+Start Image Slider 
+*/
+.custom-carousel{
+  position: relative;
+}
+.overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #080d15;
+  opacity: .7;
+}
+.slider-area{
+  padding-top: 0%;
+}
+.slider-area .carousel-inner .carousel-item{
+  height: 80vh;
+}
+/* .slider-area .carousel-inner .carousel-item img{
+  width:50% auto;
+  height:100%;
+} */
+/* .slider-area .carousel-inner .carousel-item .carousel-caption{
+  padding-bottom: 50px;
+} */
+.carousel-caption h2{
+  font-size: 60px;
+  font-weight: 500;
+  font-family: 'ZCOOL XiaoWei', serif;
+  text-transform: uppercase;
+  background: #080d15;
+  animation-delay: .3s;
+  opacity: 0.5;
+}
+.carousel-caption p{
+  font-size: 20px;
+  font-family: 'Dosis', sans-serif;
+  background: #ffbb00;
+  animation-delay: .5s;
+  color:black;
+  opacity: 0.5;
+}
+.carousel-control-prev{
+  background-image: none;
+}
+.carousel-control-next{
+  background-image: none;
+}
+/*
+End Image Slider 
+*/
+
+
+
+/*
+Start WhyChooseUs?
+*/
+.why-choose-us{
+  font-family: 'Thasadith', sans-serif;
+}
+.custom-icon-color{
+  color: rgb(219, 115, 46);
+}
+
+#custom-jumbotron-color{
+  background-color: #444444;
+}
+.ctc-header{
+  color: #8F8F8F;
+  font-family: 'Oswald', sans-serif;
+}
+.ctf{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+/*
+End WhyChooseUs?
+*/
+
+.little-words{
+  font-family: 'Thasadith', sans-serif;
+}
+
+
+/*
+Start ConnectWithUs
+*/
+.connect-with-us{
+  font-family: 'Thasadith', sans-serif;
+  color: #fff;
+}
+#brands a{
+  color: antiquewhite;
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+Strat About Us Page
+*/
+
+
+#parallex-image{
+  background-image: url(../images/mountain.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 600px;
+  width: 100% auto;
+  object-fit: cover;
+}
+#parallex-image .overlay{
+  height: 600px;
+  opacity: .5;
+}
+#parallex-image .text-align-middle{
+  padding-top: 15%;
+  position: relative;
+}
+#parallex-image h1{
+  color: rgb(0, 0, 0);
+  font-size: 100px;
+  font-weight: 500;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+
+.about-us-text{
+  height: 600px;
+}
+.about-us-text p{
+  padding-top: 4%;
+}
+
+
+#parallex-image-1{
+  background-image: url(../images/hd-nature-wallpapers-for-pc-full-screen.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 600px;
+  width: 100% auto;
+  object-fit: cover;
+}
+#parallex-image-1 .overlay{
+  height: 600px;
+  opacity: .5;
+}
+#parallex-image-1 .text-align-middle{
+  padding-top: 15%;
+  position: relative;
+}
+#parallex-image-1 h1{
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+  font-weight: 500;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+#our-team{
+  height: 600px;
+  padding-top: 1.5%;
+}
+
+
+
+#parallex-image-2{
+  background-image: url(../images/mountain-3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 500px;
+  width: 100% auto;
+  object-fit: cover;
+}
+#parallex-image-2 .overlay{
+  height: 500px;
+  opacity: .5;
+}
+#parallex-image-2 .text-align-middle{
+  padding-top: 3%;
+  position: relative;
+}
+#parallex-image-2 h1{
+  color: rgb(255, 255, 255);
+  font-size: 100px;
+  font-weight: 500;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+#awards{
+  align-content: center;
+  align-items: center;
+  background-color: #080d15;
+  opacity: .5;
+}
