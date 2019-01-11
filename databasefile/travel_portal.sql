@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2019 at 05:43 PM
+-- Generation Time: Jan 11, 2019 at 05:07 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -72,7 +72,21 @@ INSERT INTO `destinations` (`dest_id`, `dest_name`, `dest_image`, `uploaded_on`)
 (8, 'fdgdfg', 'india.jpg', '0000-00-00 00:00:00'),
 (9, 'fdgdfg', 'india.jpg', '0000-00-00 00:00:00'),
 (10, 'fdgggggggggggggggggggggg', 'india.jpg', '0000-00-00 00:00:00'),
-(11, 'cxvcxv', 'india.jpg', '0000-00-00 00:00:00');
+(11, 'cxvcxv', 'india.jpg', '0000-00-00 00:00:00'),
+(12, 'test', 'featured-img-1.jpg', '0000-00-00 00:00:00'),
+(13, 'this is awesome test', 'featured-img-3.jpg', '0000-00-00 00:00:00'),
+(14, 'awesome ;)', 'recent-car-5.jpg', '0000-00-00 00:00:00'),
+(15, 'dddddddddddddddddddd', 'support_faq_bg.jpg', '0000-00-00 00:00:00'),
+(16, 'visa visa visa', 'blog_img4.jpg', '0000-00-00 00:00:00'),
+(17, 'visa visa visa', 'blog_img4.jpg', '0000-00-00 00:00:00'),
+(18, 'visa visa', '118.jpg', '0000-00-00 00:00:00'),
+(19, 'Taj Mahal', '126.jpg', '0000-00-00 00:00:00'),
+(20, 'this is final test', '115.jpg', '0000-00-00 00:00:00'),
+(21, 'Taj Mahal', '126.jpg', '0000-00-00 00:00:00'),
+(22, 'niagra', '113.jpg', '0000-00-00 00:00:00'),
+(23, 'niagra', '113.jpg', '0000-00-00 00:00:00'),
+(24, 'hacker', '73.jpg', '0000-00-00 00:00:00'),
+(30, 'ho ho ho', '25.jpg', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -104,7 +118,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
