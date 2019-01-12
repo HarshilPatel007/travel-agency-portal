@@ -10,8 +10,6 @@
           <a class="dropdown-item" href="view-destination.php">View Destination</a>
           <a class="dropdown-item" href="add-destination.php">Add Destination</a>
           <a class="dropdown-item" href="#">Edit Destination</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Delete Destination</a>
         </div>
       </li>
 

@@ -16,7 +16,7 @@
 <?php
 
 
-$result = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM destinations");
+$result = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM destinations ORDER BY dest_id desc");
 ?>
 
 
@@ -49,31 +49,31 @@ $result = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM des
 
 <div class="container p-5">
 
-<h3>View Destination</h3>
+    <h3>View Destination</h3>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Destination Name</th>
-      <th scope="col">Destination Image</th>
-    </tr>
-  </thead>
-  <tbody>
+    <table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Destination Name</th>
+        <th scope="col">Destination Image</th>
+        <th scope="col">Delete</th>
+        </tr>
+    </thead>
 
-  <?php
-    while ($row = mysqli_fetch_array($result)){
-        echo "<tr>";
-        echo "<th scope='row'>".$row['dest_id']."</th>";
-        echo "<td>".$row['dest_name']."</td>";
-        echo "<td><img src='image/".$row['dest_image']."' width='300' height='150' alt='Destination Image'></td>";
-    }
-  ?>
-    </tr>
-  </tbody>
-</table>
-
-
+    <tbody>
+    <?php
+        $count=1;
+        while ($row = mysqli_fetch_array($result)){ ?>
+        <tr>
+            <?php echo "<th scope='row'>".$row['dest_id']."</th>"; ?>
+            <?php echo "<td>".$row['dest_name']."</td>"; ?>
+            <?php echo "<td><img src='image/".$row['dest_image']."' width='300' height='150' alt='Destination Image'></td>"; ?>
+            <td><a href="delete-destination.php?id=<?php echo $row['dest_id']; ?>">Delete</a></td>
+        </tr>
+        <?php $count++; } ?>
+    </tbody>
+    </table>
 
 </div>
 
