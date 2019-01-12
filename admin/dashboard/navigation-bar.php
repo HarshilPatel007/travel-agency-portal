@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
   <div class="container-fluid">
     <!-- <h3 href="#" class="navbar-brand">Travel Agency</h3> -->
-    <a>Welcome <?php echo $_SESSION['name']; ?></a>
+    <a href="./index.php">Welcome <?php echo $_SESSION['name']; ?></a>
     <ul class="nav justify-content-end">
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Destinations</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">View Destination</a>
+          <a class="dropdown-item" href="view-destination.php">View Destination</a>
           <a class="dropdown-item" href="add-destination.php">Add Destination</a>
           <a class="dropdown-item" href="#">Edit Destination</a>
           <div class="dropdown-divider"></div>
