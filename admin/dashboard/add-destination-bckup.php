@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     
     if(isset($_SESSION['user_id']) && isset($_SESSION['name']) && isset($_SESSION['email'])){
@@ -8,74 +7,43 @@
         header("Location: ../../404.php");
         exit();
     }
-
 ?>
 
 
 
 <?php
-
-
-$Error = '<br><br><div class="alert alert-info" role="alert">Field can\'t be empty.</div>';
-$Success = '<br><br><div class="alert alert-success" role="alert">Data inserted Sucessfuly.</div>';
-$Fail = '<br><br><div class="alert alert-danger" role="alert">There is an error occurred while inserting the data.</div>';
-$imageError = '<br><br><div class="alert alert-info" role="alert">Only JPG, JPEG & PNG file types are allowed.</div>';
-
-// If upload button is clicked ...
-if(isset($_POST['upload'])){
-	// Get image name
-	$image = $_FILES['image']['name'];
-	// Get text
-	$image_text = mysqli_real_escape_string($dbConnect, $_POST['image_text']);
-	// image file directory
-	$target = "image/".basename($image);
-	$allowed_image_extension = array("png","jpg","jpeg","PNG","JPG","JPEG");
-	// Get image file extension
-	$file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-
-	if(empty($image) || empty($image_text)){
-		$response = array(
-			"type" => "error",
-			"message" => $Error
-		);
-	}else{
-		if(!in_array($file_extension, $allowed_image_extension)){
-			$response = array(
-				"type" => "error",
-				"message" => $imageError
-			);
-		}else{
+  // If upload button is clicked ...
+  if(isset($_POST['upload'])) {
+	  // Get image name
+	  $image = $_FILES['image']['name'];
+	  // Get text
+	  $image_text = mysqli_real_escape_string($dbConnect, $_POST['image_text']);
+	  // image file directory
+	  $target = "image/".basename($image);
+	  $allowed_image_extension = array("png","jpg","jpeg");
+	  // Get image file extension
+	  $file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+	  if(!in_array($file_extension, $allowed_image_extension)){
+		  echo "<script>alert('Only PNG, JPG & JPEG file type allowed.')</script>";
+		  header("Location: add-destination.php");
+		  exit();
+	  }else{
 			$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$image', '$image_text')";
 			// execute query
 			if(mysqli_query($dbConnect, $sql)){
-				$response = array(
-					"type" => "error",
-					"message" => $Success
-				);
+                echo "<script>alert('Image is uploaded successfuly.')</script>";
 			}else{
-				$response = array(
-					"type" => "error",
-					"message" => $Fail
-				);
+				echo "<script>alert('There is an error accoured while uploading an image.')</script>";
 			}
+			
 			if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
-				$response = array(
-					"type" => "error",
-					"message" => $Success
-				);
-				// header("Location: add-destination.php");
-				// exit();
+				echo "<script>alert('Image is uploaded successfuly.')</script>";
 			}else{
-				$response = array(
-					"type" => "error",
-					"message" => $Fail
-				);
+				echo "<script>alert('There is an error accoured while uploading an image.')</script>";
 			}
-		}
-	}
-}
-
-// $result = mysqli_query($dbConnect, "SELECT dest_image,dest_name FROM destinations");
+	  }
+  }
+  $result = mysqli_query($dbConnect, "SELECT dest_image,dest_name FROM destinations");
 ?>
 
 
@@ -92,7 +60,7 @@ if(isset($_POST['upload'])){
     <link href="https://fonts.googleapis.com/css?family=Charm|Dosis|ZCOOL+XiaoWei|Thasadith|Montserrat|Oswald" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <title>Add Destination | Admin Dashboard</title>
+    <title>Admin Dashboard</title>
 </head>
 
 
@@ -107,8 +75,6 @@ if(isset($_POST['upload'])){
 
 
 <div class="container p-5">
-
-<h3>Add Destination</h3>
 
 	<form action="add-destination.php" method="post" enctype="multipart/form-data">
 
@@ -136,12 +102,6 @@ if(isset($_POST['upload'])){
 
 	</form>
 
-	<?php if(!empty($response)) { ?>
-	<div class="response <?php echo $response["type"]; ?> ">
-		<?php echo $response["message"]; ?>
-	</div>
-	<?php } ?>
-
 </div>
 
 
@@ -151,7 +111,6 @@ if(isset($_POST['upload'])){
 <script src="../../js/bootstrap.js"></script>
 
 <script type='text/javascript'>
-
 function preview_image(event){
 	var reader = new FileReader();
 	reader.onload = function(){
