@@ -63,8 +63,6 @@ if(isset($_POST['upload'])){
 					"type" => "error",
 					"message" => $Success
 				);
-				// header("Location: add-destination.php");
-				// exit();
 			}else{
 				$response = array(
 					"type" => "error",
@@ -75,7 +73,6 @@ if(isset($_POST['upload'])){
 	}
 }
 
-// $result = mysqli_query($dbConnect, "SELECT dest_image,dest_name FROM destinations");
 ?>
 
 
