@@ -14,12 +14,23 @@
 
 <?php
 
-    $id = $_REQUEST['id'];
+    $idReq = $_REQUEST['id'];
+    $imageReq = $_REQUEST['image'];
+    
 
-    $query = "DELETE FROM destinations WHERE dest_id=$id";
+    if(isset($idReq) && isset($imageReq)){
+        $query = "DELETE FROM destinations WHERE dest_id=$idReq";
 
-    $result = mysqli_query($dbConnect,$query) or die ( mysqli_error());
-
-    header("Location: view-destination.php");
+        if(mysqli_query($dbConnect,$query)){
+            $target = "image/".basename($imageReq);
+            unlink($target);
+            header("Location: view-destination.php");
+        }else{
+            mysqli_error();
+        }
+    }else{
+        header("Location: ../../404.php");
+        exit();
+    }
 
 ?>

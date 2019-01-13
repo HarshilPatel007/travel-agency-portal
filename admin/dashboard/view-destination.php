@@ -57,6 +57,7 @@ $result = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM des
         <th scope="col">ID</th>
         <th scope="col">Destination Name</th>
         <th scope="col">Destination Image</th>
+        <th scope="col">Edit</th>
         <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -69,7 +70,8 @@ $result = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM des
             <?php echo "<th scope='row'>".$row['dest_id']."</th>"; ?>
             <?php echo "<td>".$row['dest_name']."</td>"; ?>
             <?php echo "<td><img src='image/".$row['dest_image']."' width='300' height='150' alt='Destination Image'></td>"; ?>
-            <td><a href="delete-destination.php?id=<?php echo $row['dest_id']; ?>">Delete</a></td>
+            <td><a href="edit-destination.php?id=<?php echo $row['dest_id']; ?>&image=<?php echo $row['dest_image']; ?>">Edit</a></td>            
+            <td><a href="delete-destination.php?id=<?php echo $row['dest_id']; ?>&image=<?php echo $row['dest_image']; ?>">Delete</a></td>
         </tr>
         <?php $count++; } ?>
     </tbody>

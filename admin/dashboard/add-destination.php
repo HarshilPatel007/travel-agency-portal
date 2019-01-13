@@ -38,6 +38,37 @@ if(isset($_POST['upload'])){
 			"type" => "error",
 			"message" => $Error
 		);
+	}elseif(file_exists($target)){
+
+		$random_digit = rand(000000000,999999999);
+		$newImage = $random_digit."_".$image;
+		$newTarget = "image/".basename($newImage);
+
+			$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$newImage', '$image_text')";
+			// execute query
+			if(mysqli_query($dbConnect, $sql)){
+				$response = array(
+					"type" => "error",
+					"message" => $Success
+				);
+			}else{
+				$response = array(
+					"type" => "error",
+					"message" => $Fail
+				);
+			}
+			if(move_uploaded_file($_FILES['image']['tmp_name'], $newTarget)){
+				$response = array(
+					"type" => "error",
+					"message" => $Success
+				);
+			}else{
+				$response = array(
+					"type" => "error",
+					"message" => $Fail
+				);
+			}
+
 	}else{
 		if(!in_array($file_extension, $allowed_image_extension)){
 			$response = array(
