@@ -9,7 +9,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="view-destination.php">View Destination</a>
           <a class="dropdown-item" href="add-destination.php">Add Destination</a>
-          <a class="dropdown-item" href="#">Edit Destination</a>
         </div>
       </li>
 

@@ -52,29 +52,29 @@ $result = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM des
     <h3>View Destination</h3>
 
     <table class="table table-bordered table-hover">
-    <thead class="thead-dark">
-        <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Destination Name</th>
-        <th scope="col">Destination Image</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-        </tr>
-    </thead>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Destination Name</th>
+                <th scope="col">Destination Image</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
 
-    <tbody>
-    <?php
-        $count=1;
-        while ($row = mysqli_fetch_array($result)){ ?>
-        <tr>
-            <?php echo "<th scope='row'>".$row['dest_id']."</th>"; ?>
-            <?php echo "<td>".$row['dest_name']."</td>"; ?>
-            <?php echo "<td><img src='image/".$row['dest_image']."' width='300' height='150' alt='Destination Image'></td>"; ?>
-            <td><a href="edit-destination.php?id=<?php echo $row['dest_id']; ?>&image=<?php echo $row['dest_image']; ?>">Edit</a></td>            
-            <td><a href="delete-destination.php?id=<?php echo $row['dest_id']; ?>&image=<?php echo $row['dest_image']; ?>">Delete</a></td>
-        </tr>
-        <?php $count++; } ?>
-    </tbody>
+        <tbody>
+        <?php
+            $count=1;
+            while ($row = mysqli_fetch_array($result)){ ?>
+            <tr>
+                <?php echo "<th scope='row'>".$row['dest_id']."</th>"; ?>
+                <?php echo "<td>".$row['dest_name']."</td>"; ?>
+                <?php echo "<td><img src='image/".$row['dest_image']."' width='300' height='150' alt='Destination Image'></td>"; ?>
+                <td><a href="edit-destination.php?id=<?php echo $row['dest_id']; ?>&image=<?php echo $row['dest_image']; ?>">Edit</a></td>            
+                <td><a href="delete-destination.php?id=<?php echo $row['dest_id']; ?>&image=<?php echo $row['dest_image']; ?>">Delete</a></td>
+            </tr>
+            <?php $count++; } ?>
+        </tbody>
     </table>
 
 </div>

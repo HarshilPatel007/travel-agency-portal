@@ -15,6 +15,12 @@
 
 <?php
 
+$idReqs = $_REQUEST['id'];
+$imageReqs = $_REQUEST['image'];
+
+$results = mysqli_query($dbConnect, "SELECT dest_id,dest_name,dest_image FROM destinations WHERE dest_id=$idReqs");
+$row = mysqli_fetch_array($results);
+
 
 $Error = '<br><br><div class="alert alert-info" role="alert">Field can\'t be empty.</div>';
 $Success = '<br><br><div class="alert alert-success" role="alert">Data inserted Sucessfuly.</div>';
@@ -22,7 +28,8 @@ $Fail = '<br><br><div class="alert alert-danger" role="alert">There is an error 
 $imageError = '<br><br><div class="alert alert-info" role="alert">Only JPG, JPEG & PNG file types are allowed.</div>';
 
 // If upload button is clicked ...
-if(isset($_POST['upload'])){
+if(isset($_POST['update'])){
+
 	// Get image name
 	$image = $_FILES['image']['name'];
 	// Get text
@@ -51,13 +58,15 @@ if(isset($_POST['upload'])){
 		$newImage = $random_digit."_".$image;
 		$newTarget = "image/".basename($newImage);
 
-			$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$newImage', '$image_text')";
+			$sql = "UPDATE destinations SET dest_name='$image_text', dest_image='$newImage' WHERE dest_id=$idReqs";
 			// execute query
 			if(mysqli_query($dbConnect, $sql)){
 				$response = array(
 					"type" => "error",
 					"message" => $Success
 				);
+				$targets = "image/".basename($imageReqs);
+				unlink($targets);
 			}else{
 				$response = array(
 					"type" => "error",
@@ -77,13 +86,15 @@ if(isset($_POST['upload'])){
 			}
 
 	}else{
-		$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$image', '$image_text')";
+		$sql = "UPDATE destinations SET dest_name='$image_text', dest_image='$image' WHERE dest_id=$idReqs";
 		// execute query
 		if(mysqli_query($dbConnect, $sql)){
 			$response = array(
 				"type" => "error",
 				"message" => $Success
 			);
+			$targets = "image/".basename($imageReqs);
+            unlink($targets);
 		}else{
 			$response = array(
 				"type" => "error",
@@ -120,7 +131,7 @@ if(isset($_POST['upload'])){
     <link href="https://fonts.googleapis.com/css?family=Charm|Dosis|ZCOOL+XiaoWei|Thasadith|Montserrat|Oswald" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <title>Add Destination | Admin Dashboard</title>
+    <title>Edit Destination | Admin Dashboard</title>
 </head>
 
 
@@ -136,14 +147,21 @@ if(isset($_POST['upload'])){
 
 <div class="container p-5">
 
-<h3>Add Destination</h3>
+<h3>Edit Destination</h3>
 
-	<form action="add-destination.php" method="post" enctype="multipart/form-data">
+	<form action="" method="post" enctype="multipart/form-data">
+
+		<div class="form-group row">
+			<label for="image_id" class="col-sm-2 col-form-label">Destination ID :</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="image_id" id="image_id" placeholder="Destination ID" value="<?php echo $row['dest_id']; ?>" readonly>
+			</div>
+		</div>
 
 		<div class="form-group row">
 			<label for="image_text" class="col-sm-2 col-form-label">Destination Name :</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="image_text" id="image_text" placeholder="Enter Destination Name">
+				<input type="text" class="form-control" name="image_text" id="image_text" placeholder="Enter New Destination Name">
 			</div>
 		</div>
 
@@ -153,14 +171,14 @@ if(isset($_POST['upload'])){
 				<input type="file" class="form-control-file" name="image" id="image" onchange="preview_image(event)" accept="image/x-png,image/jpg,image/jpeg">
 			</div>
 		</div>
-
 		<div class="form-group row">
 			<div class="col-sm-10">
 				<img id="output_image" width="400" height="300" alt="Image Preview">
 			</div>
 		</div>
+
 		
-		<button type="submit" class="btn btn-primary" name="upload">Submit</button>
+		<button type="submit" class="btn btn-primary" name="update">Update Destination</button>
 
 	</form>
 

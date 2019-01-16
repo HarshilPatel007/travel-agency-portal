@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2019 at 05:16 PM
+-- Generation Time: Jan 13, 2019 at 09:23 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -61,36 +61,8 @@ CREATE TABLE `destinations` (
 --
 
 INSERT INTO `destinations` (`dest_id`, `dest_name`, `dest_image`) VALUES
-(1, 'india', 'india.jpg'),
-(2, 'india', 'india.jpg'),
-(3, 'india', 'india.jpg'),
-(7, 'love it', 'india.jpg'),
-(8, 'fdgdfg', 'india.jpg'),
-(9, 'fdgdfg', 'india.jpg'),
-(10, 'fdgggggggggggggggggggggg', 'india.jpg'),
-(11, 'cxvcxv', 'india.jpg'),
-(12, 'test', 'featured-img-1.jpg'),
-(13, 'this is awesome test', 'featured-img-3.jpg'),
-(14, 'awesome ;)', 'recent-car-5.jpg'),
-(15, 'dddddddddddddddddddd', 'support_faq_bg.jpg'),
-(16, 'visa visa visa', 'blog_img4.jpg'),
-(17, 'visa visa visa', 'blog_img4.jpg'),
-(18, 'visa visa', '118.jpg'),
-(19, 'Taj Mahal', '126.jpg'),
-(20, 'this is final test', '115.jpg'),
-(21, 'Taj Mahal', '126.jpg'),
-(22, 'niagra', '113.jpg'),
-(23, 'niagra', '113.jpg'),
-(31, '', 'blog_img4.jpg'),
-(35, 'test', 'blog_img4.jpg'),
-(37, 'Taj Mahal', '4.jpg'),
-(38, 'Taj Mahal', '4.jpg'),
-(43, 'Santa Santa', '24.jpg'),
-(44, 'Taj Mahal', '4.jpg'),
-(54, 'different', 'girl9.jpg'),
-(55, 'fdgdfg', 'banner-image-1.jpg'),
-(56, 'la la la la la la la la la la la la la la', 'listing_img5.jpg'),
-(57, 'different', '59.jpg');
+(68, 'test file exist2', '51399.jpg'),
+(69, 'test file exist3', '3.jpg');
 
 --
 -- Indexes for dumped tables
@@ -122,7 +94,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
