@@ -23,6 +23,14 @@
         </div>
       </li>
 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">View Gallery</a>
+          <a class="dropdown-item" href="#">Add Gallery Image</a>
+        </div>
+      </li>
+
       <form class="form-inline" action="logout.php" method="post">
         <button class="btn btn-outline-dark" type="submit" name="logoutbtn">Logout</button>
       </form>

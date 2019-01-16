@@ -26,7 +26,7 @@
             unlink($target);
             header("Location: view-destination.php");
         }else{
-            mysqli_error();
+            echo mysqli_error();
         }
     }else{
         header("Location: ../../404.php");

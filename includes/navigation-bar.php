@@ -9,7 +9,7 @@
         <a class="nav-link" href="about.php">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Destinations</a>
+        <a class="nav-link" href="destinations.php">Destinations</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Packages</a>

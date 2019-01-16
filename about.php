@@ -34,7 +34,7 @@
 <div id="parallex-image">
   <div class="overlay"></div>
   <div class="text-center text-align-middle">
-    <h1 data-aos="fade-down" data-aos-duration="5000">About Us</h1>
+    <h1 data-aos="fade-down" data-aos-duration="1500">About Us</h1>
   </div>
 </div>
 <div class="container about-us-text">
@@ -55,7 +55,7 @@
 <div id="parallex-image-1">
   <div class="overlay"></div>
   <div class="text-center text-align-middle">
-    <h1 data-aos="fade-down" data-aos-duration="5000">Our Team</h1>
+    <h1 data-aos="fade-down" data-aos-duration="1500">Our Team</h1>
   </div>
 </div>
 <div class="container-fluid" id="our-team">
@@ -129,7 +129,7 @@
 <div id="parallex-image-2">
   <div class="overlay"></div>
   <div class="text-center text-align-middle">
-    <h1 data-aos="fade-down" data-aos-duration="5000">Awards We Won</h1>
+    <h1 data-aos="fade-down" data-aos-duration="1500">Awards We Won</h1>
   </div>
 
 
