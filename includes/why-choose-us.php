@@ -45,16 +45,24 @@
 
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-6">
-    <h2 class="display-4 little-words" data-aos="fade-up-right" aos-duration="2000">A little words about us.</h2>
-    <p class="lead text-justify"data-aos="fade-up-left" aos-duration="2000">We are committed to offering travel services of the highest quality, combining our energy and enthusiasm, with our years of experience. Our greatest satisfaction comes in serving large numbers of satisfied clients who have experienced the joys and inspiration of travel.
-</p><br/>
-    <a class="btn btn-primary" href="about.php">Know more..</a>
+  <div class="row my-5">
+    <div class="col-lg-6 my-3">
+      <h2 class="display-4 little-words" data-aos="fade-up-right" aos-duration="2000">A little words about us.</h2>
+      <p class="lead text-justify"data-aos="fade-up-left" aos-duration="2000">We are committed to offering travel services of the highest quality, combining our energy and enthusiasm, with our years of experience. Our greatest satisfaction comes in serving large numbers of satisfied clients who have experienced the joys and inspiration of travel.</p>
+      <p class="lead text-justify"data-aos="fade-up-left" aos-duration="2000">We recognized as a one-stop travel hub where you will get all travel related services. Our business is managed by a professionals and a committed team, who are highly skilled in areas of Knowledge, Customer Service and Operations & Supporting our extensive network across the region.</p>
+      <a class="btn btn-primary" href="about.php">Know more..</a>
     </div>
-    <div class="col-lg-6"><center>
+    <!-- <div class="col-lg-6"><center>
     <img src="images/about_us_icon.png" alt="Travel Agency" class="image-fluid"></center>
-    </div>
+    </div> -->
+    <div class="col-lg-6 my-3">
+      <div id="little-aboutus-image">
+        <div class="aboutus-overlay"></div>
+          <!-- <div class="text-center text-align-middle">
+            <h1 data-aos="fade-down" data-aos-duration="1500">Know More</h1>
+            <a data-aos="fade-down" data-aos-duration="1500" class="btn btn-primary" href="about.php">Know more..</a>
+          </div> -->
+      </div>
     </div>
   </div>
 </div>

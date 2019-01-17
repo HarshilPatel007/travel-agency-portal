@@ -36,7 +36,7 @@
 
 
 
-<div id="parallex-image">
+<div id="destination-image">
   <div class="overlay"></div>
   <div class="text-center text-align-middle">
     <h1 data-aos="fade-down" data-aos-duration="1500">Destinations</h1>
@@ -50,14 +50,13 @@
             $count=1;
             while ($row = mysqli_fetch_array($result)){
         ?>
-        <div class="col" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500">
-
+        <div class="col my-3" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="500">
             <div class="card p-1 bg-light text-white" style="width: 19rem;">
                 <?php echo "<img class='card-img-top' src='./admin/dashboard/image/".$row['dest_image']."' width='294' height='200' alt='Destination Image'>"; ?>
-                <div class="card-img-overlay">
+                <div class="card-img-overlay card-overlay">
                 <div class="my-4 card-body text-center">
-                    <?php echo "<h5 class='card-title'>".$row['dest_name']."</h5>"; ?>
-                    <a href="#" class="btn btn-primary">Show Packages</a>
+                    <?php echo "<h5 class='card-title' id='card-title'>".$row['dest_name']."</h5>"; ?>
+                    <a href="#" class="btn btn-outline-warning">Show Packages</a>
                 </div>
                 </div>
             </div>

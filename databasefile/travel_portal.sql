@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2019 at 09:23 AM
+-- Generation Time: Jan 16, 2019 at 03:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -62,7 +62,9 @@ CREATE TABLE `destinations` (
 
 INSERT INTO `destinations` (`dest_id`, `dest_name`, `dest_image`) VALUES
 (68, 'test file exist2', '51399.jpg'),
-(69, 'test file exist3', '3.jpg');
+(69, 'test file exist3', '3.jpg'),
+(70, 'Taj Mahal', '116826806_111.jpg'),
+(71, 'Taj Mahal', '123.jpg');
 
 --
 -- Indexes for dumped tables
@@ -94,7 +96,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

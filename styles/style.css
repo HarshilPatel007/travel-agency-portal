@@ -111,6 +111,33 @@ End WhyChooseUs?
 }
 
 
+.aboutus-overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #ffbb00;
+  opacity: .3;
+}
+#little-aboutus-image{
+  background-image: url(../images/mountain-tree.jpg);
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#little-aboutus-image .aboutus-overlay{
+  height: 100% auto;
+  opacity: .3;
+
+}
+
+
 /*
 Start ConnectWithUs
 */
@@ -138,6 +165,8 @@ Strat About Us Page
 
 #parallex-image{
   background-image: url(../images/mountain.jpg);
+  filter: blur(0.7px);
+  -webkit-filter: blur(0.7px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -171,6 +200,8 @@ Strat About Us Page
 
 #parallex-image-1{
   background-image: url(../images/hd-nature-wallpapers-for-pc-full-screen.jpg);
+  filter: blur(0.7px);
+  -webkit-filter: blur(0.7px);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -229,4 +260,63 @@ Strat About Us Page
   align-items: center;
   background-color: #080d15;
   opacity: .5;
+}
+
+
+
+
+/*
+Start Destination Page
+*/
+
+#destination-image{
+  background-image: url(../images/sky.jpg);
+  /* background-color: #444444; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 200px;
+  width: 100% auto;
+  object-fit: cover;
+}
+#destination-image .overlay{
+  height: 200px;
+  opacity: .5;
+}
+#destination-image .text-align-middle{
+  padding-top: 2%;
+  position: relative;
+}
+#destination-image h1{
+  color: rgb(0, 0, 0);
+  font-size: 100px;
+  font-weight: 500;
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+
+.card-overlay{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  border-radius: 1%;
+  transition: .5s ease;
+  background-color: #080d15;
+}
+
+.card-overlay:hover{
+  opacity: .9;  
+
+}
+
+#card-title{
+  color: #ffbb00;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: oblique;
+  font-size: 25px;
+  font-weight: bolder;
 }
