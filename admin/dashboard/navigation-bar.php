@@ -16,7 +16,7 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Packages</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">View Packages</a>          
-          <a class="dropdown-item" href="#">Add Packages</a>
+          <a class="dropdown-item" href="add-packages.php">Add Packages</a>
           <a class="dropdown-item" href="#">Edit Packages</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Delete Packages</a>

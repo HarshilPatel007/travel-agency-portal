@@ -23,17 +23,17 @@ $imageError = '<br><br><div class="alert alert-info" role="alert">Only JPG, JPEG
 
 // If upload button is clicked ...
 if(isset($_POST['upload'])){
-	// Get image name
-	$image = $_FILES['image']['name'];
+	// Get pkg_thumbnail name
+	$pkg_thumbnail = $_FILES['pkg_thumbnail']['name'];
 	// Get text
-	$image_text = mysqli_real_escape_string($dbConnect, $_POST['image_text']);
-	// image file directory
-	$target = "image/".basename($image);
+	$pkg_name = mysqli_real_escape_string($dbConnect, $_POST['pkg_name']);
+	// pkg_thumbnail file directory
+	$target = "pkgImage/".basename($pkg_thumbnail);
 	$allowed_image_extension = array("png","jpg","jpeg","PNG","JPG","JPEG");
-	// Get image file extension
-	$file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+	// Get pkg_thumbnail file extension
+	$file_extension = pathinfo($_FILES['pkg_thumbnail']['name'], PATHINFO_EXTENSION);
 
-	if(empty($image) || empty($image_text)){
+	if(empty($pkg_thumbnail) || empty($pkg_name)){
 		$response = array(
 			"type" => "error",
 			"message" => $Error
@@ -48,10 +48,10 @@ if(isset($_POST['upload'])){
 	}elseif(file_exists($target)){
 
 		$random_digit = rand(000000000,999999999);
-		$newImage = $random_digit."_".$image;
-		$newTarget = "image/".basename($newImage);
+		$newImage = $random_digit."_".$pkg_thumbnail;
+		$newTarget = "pkg_thumbnail/".basename($newImage);
 
-			$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$newImage', '$image_text')";
+			$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$newImage', '$pkg_name')";
 			// execute query
 			if(mysqli_query($dbConnect, $sql)){
 				$response = array(
@@ -64,7 +64,7 @@ if(isset($_POST['upload'])){
 					"message" => $Fail
 				);
 			}
-			if(move_uploaded_file($_FILES['image']['tmp_name'], $newTarget)){
+			if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $newTarget)){
 				$response = array(
 					"type" => "error",
 					"message" => $Success
@@ -77,7 +77,7 @@ if(isset($_POST['upload'])){
 			}
 
 	}else{
-		$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$image', '$image_text')";
+		$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$pkg_thumbnail', '$pkg_name')";
 		// execute query
 		if(mysqli_query($dbConnect, $sql)){
 			$response = array(
@@ -90,7 +90,7 @@ if(isset($_POST['upload'])){
 				"message" => $Fail
 			);
 		}
-		if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+		if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $target)){
 			$response = array(
 				"type" => "error",
 				"message" => $Success
@@ -115,12 +115,13 @@ if(isset($_POST['upload'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../styles/style.css">
-    <link rel="stylesheet" href="../../styles/bootstrap.css">
+	<link rel="stylesheet" href="../../styles/bootstrap.css">
+
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Charm|Dosis|ZCOOL+XiaoWei|Thasadith|Montserrat|Oswald" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <title>Add Destination | Admin Dashboard</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <title>Add Packages | Admin Dashboard</title>
 </head>
 
 
@@ -133,24 +134,39 @@ if(isset($_POST['upload'])){
 
 
 
-
 <div class="container p-5">
 
-<h3>Add Destination</h3>
+<h3>Add Packages</h3>
 
-	<form action="add-destination.php" method="post" enctype="multipart/form-data">
+	<form action="add-packages.php" method="post" enctype="multipart/form-data">
 
 		<div class="form-group row">
-			<label for="image_text" class="col-sm-2 col-form-label">Destination Name :</label>
+			<label for="pkg_name" class="col-sm-2 col-form-label">Package Name :</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="image_text" id="image_text" placeholder="Enter Destination Name" value="<?php if(isset($image_text)) echo $image_text; ?>">
+				<input type="text" class="form-control" name="pkg_name" id="pkg_name" placeholder="Enter Package Name" value="<?php if(isset($pkg_name)) echo $pkg_name; ?>">
 			</div>
 		</div>
 
 		<div class="form-group row">
-			<label for="image" class="col-sm-2 col-form-label">Destination Image :</label>
+			<label for="destination_name" class="col-sm-2 col-form-label">Select Destination Name :</label>
 			<div class="col-sm-10">
-				<input type="file" class="form-control-file" name="image" id="image" onchange="preview_image(event)" accept="image/x-png,image/jpg,image/jpeg">
+				<select class="form-control" id="destination_name"><option value="">Select</option>
+				<?php
+					$result = mysqli_query($dbConnect, "SELECT dest_id,dest_name FROM destinations ORDER BY dest_id desc");
+					$r=mysqli_num_rows($result);
+
+					while($data=mysqli_fetch_array($result)){	
+							echo "<option value=$data[0]>$data[1]</option>";
+					}
+				?>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="pkg_thumbnail" class="col-sm-2 col-form-label">Package Thumbnail :</label>
+			<div class="col-sm-10">
+				<input type="file" class="form-control-file" name="pkg_thumbnail" id="pkg_thumbnail" onchange="preview_image(event)" accept="image/x-png,image/jpg,image/jpeg">
 			</div>
 		</div>
 
@@ -159,6 +175,14 @@ if(isset($_POST['upload'])){
 				<img id="output_image" width="400" height="300" alt="Image Preview">
 			</div>
 		</div>
+
+		<div class="form-group row">
+			<label for="pkg_duration" class="col-sm-2 col-form-label">Tour Duration :</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="pkg_duration" id="pkg_duration" placeholder="Enter Tour Duration" value="<?php if(isset($pkg_duration)) echo $pkg_duration; ?>">
+			</div>
+		</div>
+
 		
 		<button type="submit" class="btn btn-primary" name="upload">Submit</button>
 
@@ -179,15 +203,14 @@ if(isset($_POST['upload'])){
 <script src="../../js/bootstrap.js"></script>
 
 <script type='text/javascript'>
-
-function preview_image(event){
-	var reader = new FileReader();
-	reader.onload = function(){
-		var output = document.getElementById('output_image');
-		output.src = reader.result;
- 	}
-	reader.readAsDataURL(event.target.files[0]);
-}
+	function preview_image(event){
+		var reader = new FileReader();
+		reader.onload = function(){
+			var output = document.getElementById('output_image');
+			output.src = reader.result;
+		}
+		reader.readAsDataURL(event.target.files[0]);
+	}
 </script>
 
 </body>
