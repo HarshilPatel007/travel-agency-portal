@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 16, 2019 at 03:46 PM
+-- Generation Time: Jan 17, 2019 at 04:25 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -61,10 +61,29 @@ CREATE TABLE `destinations` (
 --
 
 INSERT INTO `destinations` (`dest_id`, `dest_name`, `dest_image`) VALUES
-(68, 'test file exist2', '51399.jpg'),
-(69, 'test file exist3', '3.jpg'),
-(70, 'Taj Mahal', '116826806_111.jpg'),
-(71, 'Taj Mahal', '123.jpg');
+(68, 'France', 'france.png'),
+(69, 'Canada', 'canada.png'),
+(70, 'Brazil', 'brazil.png'),
+(71, 'Australia', 'australia.png'),
+(72, 'Germany', 'germany.png'),
+(73, 'India', 'india.png'),
+(74, 'Singapore', 'singapore.png'),
+(75, 'UK', '734511047_uk.png'),
+(76, 'USA', 'us.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `id` int(20) NOT NULL,
+  `dest_ID` int(20) NOT NULL,
+  `pkg_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_image` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_thumbnail` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -83,6 +102,12 @@ ALTER TABLE `destinations`
   ADD PRIMARY KEY (`dest_id`);
 
 --
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -96,7 +121,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

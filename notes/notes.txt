@@ -1,0 +1,6 @@
+<?php
+
+$text-area = $_REQUEST["text_area"];
+echo str_replace("\n", "<br>", $text-area);
+
+?>
