@@ -23,23 +23,23 @@ $imageError = '<br><br><div class="alert alert-info" role="alert">Only JPG, JPEG
 
 // If upload button is clicked ...
 if(isset($_POST['upload'])){
-	// Get pkg_thumbnail name
+	// Get images name
 	$pkg_thumbnail = $_FILES['pkg_thumbnail']['name'];
 	$pkg_image1 = $_FILES['pkg_image1']['name'];
 	$pkg_image2 = $_FILES['pkg_image2']['name'];
 	$pkg_image3 = $_FILES['pkg_image3']['name'];
 
-	// Get text
+	// Get values from textbox and textarea.
 	$pkg_name = mysqli_real_escape_string($dbConnect, $_POST['pkg_name']);
 	$destination_name = mysqli_real_escape_string($dbConnect, $_POST['destination_name']);
 	$pkg_duration = mysqli_real_escape_string($dbConnect, $_POST['pkg_duration']);
 	$pkg_price = mysqli_real_escape_string($dbConnect, $_POST['pkg_price']);
 	$pkg_itinerary = mysqli_real_escape_string($dbConnect, $_POST['pkg_itinerary']);
-	$pkg_includes = mysqli_real_escape_string($dbConnect, $_POST['pkg_includes']);
-	$pkg_excludes = mysqli_real_escape_string($dbConnect, $_POST['pkg_excludes']);
+	$pkg_includes =  mysqli_real_escape_string($dbConnect, $_POST['pkg_includes']);
+	$pkg_excludes =  mysqli_real_escape_string($dbConnect, $_POST['pkg_excludes']);
 
 
-	// pkg_thumbnail file directory
+	// image file directory
 	$target = "pkgImage/".basename($pkg_thumbnail);
 	$target1 = "pkgImage/".basename($pkg_image1);
 	$target2 = "pkgImage/".basename($pkg_image2);
@@ -47,26 +47,26 @@ if(isset($_POST['upload'])){
 
 	$allowed_image_extension = array("png","jpg","jpeg","PNG","JPG","JPEG");
 
-	// Get pkg_thumbnail file extension
+	// Get image file extension
 	$file_extension = pathinfo($_FILES['pkg_thumbnail']['name'], PATHINFO_EXTENSION);
 	$file_extension1 = pathinfo($_FILES['pkg_image1']['name'], PATHINFO_EXTENSION);
 	$file_extension2 = pathinfo($_FILES['pkg_image2']['name'], PATHINFO_EXTENSION);
 	$file_extension3 = pathinfo($_FILES['pkg_image3']['name'], PATHINFO_EXTENSION);
 
-
-	if(empty($pkg_thumbnail) || empty($pkg_image1) || empty($pkg_image2) || empty($pkg_image3) || empty($pkg_name)){
+// empty($pkg_thumbnail) || empty($pkg_image1) || empty($pkg_image2) || empty($pkg_image3) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes)
+	if( empty($pkg_thumbnail) || empty($pkg_image1) || empty($pkg_image2) || empty($pkg_image3) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes) ){
 		$response = array(
 			"type" => "error",
 			"message" => $Error
 		);
-
+// or !in_array($file_extension1, $allowed_image_extension) or !in_array($file_extension2, $allowed_image_extension) or !in_array($file_extension3, $allowed_image_extension)
 	}elseif(!in_array($file_extension, $allowed_image_extension) or !in_array($file_extension1, $allowed_image_extension) or !in_array($file_extension2, $allowed_image_extension) or !in_array($file_extension3, $allowed_image_extension)){
 		$response = array(
 			"type" => "error",
 			"message" => $imageError
 		);
 
-	}elseif(file_exists($target) or file_exists($target1) or file_exists($target2) or file_exists($target3)){
+	}elseif(file_exists($target) || file_exists($target1) || file_exists($target2) || file_exists($target3)){
 
 		$random_digit = rand(000000000,999999999);
 
@@ -81,7 +81,7 @@ if(isset($_POST['upload'])){
 		$newTarget3 = "pkgImage/".basename($newImage3);
 
 
-			$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$newImage', '$pkg_name')";
+			$sql = "INSERT INTO packages (dest_ID, pkg_name, pkg_thumbnail, pkg_image1, pkg_image2, pkg_image3, tour_duration, tour_price, pkg_itnry, pkg_include, pkg_exclude) VALUES ('$destination_name', '$pkg_name', '$newImage', '$newImage1', '$newImage2', '$newImage3', '$pkg_duration', '$pkg_price', '$pkg_itinerary', '$pkg_includes', '$pkg_excludes')";
 			// execute query
 			if(mysqli_query($dbConnect, $sql)){
 				$response = array(
@@ -94,7 +94,7 @@ if(isset($_POST['upload'])){
 					"message" => $Fail
 				);
 			}
-			if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $newTarget)){
+			if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $newTarget) or move_uploaded_file($_FILES['pkg_image1']['tmp_name'], $newTarget1) or move_uploaded_file($_FILES['pkg_image2']['tmp_name'], $newTarget2) or move_uploaded_file($_FILES['pkg_image3']['tmp_name'], $newTarget3)){
 				$response = array(
 					"type" => "error",
 					"message" => $Success
@@ -107,7 +107,7 @@ if(isset($_POST['upload'])){
 			}
 
 	}else{
-		$sql = "INSERT INTO destinations (dest_image, dest_name) VALUES ('$pkg_thumbnail', '$pkg_name')";
+		$sql = "INSERT INTO packages (dest_ID, pkg_name, pkg_thumbnail, pkg_image1, pkg_image2, pkg_image3, tour_duration, tour_price, pkg_itnry, pkg_include, pkg_exclude) VALUES ('$destination_name', '$pkg_name', '$pkg_thumbnail', '$pkg_image1', '$pkg_image2', '$pkg_image3', '$pkg_duration', '$pkg_price', '$pkg_itinerary', '$pkg_includes', '$pkg_excludes')";
 		// execute query
 		if(mysqli_query($dbConnect, $sql)){
 			$response = array(
@@ -120,7 +120,7 @@ if(isset($_POST['upload'])){
 				"message" => $Fail
 			);
 		}
-		if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $target)){
+		if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $target) or move_uploaded_file($_FILES['pkg_image1']['tmp_name'], $target1) or move_uploaded_file($_FILES['pkg_image2']['tmp_name'], $target2) or move_uploaded_file($_FILES['pkg_image3']['tmp_name'], $target3)){
 			$response = array(
 				"type" => "error",
 				"message" => $Success
@@ -219,40 +219,40 @@ if(isset($_POST['upload'])){
 		<div class="form-group row">
 			<label for="pkg_itinerary" class="col-sm-2 col-form-label">Package Itinerary:</label>
 			<div class="col-sm-10">
-				<textarea class="form-control" name="pkg_itinerary" id="pkg_itinerary" rows="3" ><?php if(isset($pkg_itinerary)) echo str_replace("\n", "<br>", $pkg_itinerary); ?></textarea>
+				<textarea class="form-control" name="pkg_itinerary" id="pkg_itinerary" rows="3" style="white-space: pre-wrap;"></textarea>
 			</div>
 		</div>
 
 		<div class="form-group row">
 			<label for="pkg_includes" class="col-sm-2 col-form-label">Package Includes:</label>
 			<div class="col-sm-4">
-				<textarea class="form-control" name="pkg_includes" id="pkg_includes" rows="3" ><?php if(isset($pkg_includes)) echo str_replace("\n", "<br>", $pkg_includes); ?></textarea>
+				<textarea class="form-control" name="pkg_includes" id="pkg_includes" rows="3" style="white-space: pre-wrap;"></textarea>
 			</div>
 
 			<label for="pkg_excludes" class="col-sm-2 col-form-label">Package Excludes:</label>
 			<div class="col-sm-4">
-				<textarea class="form-control" name="pkg_excludes" id="pkg_excludes" rows="3"><?php if(isset($pkg_excludes)) echo str_replace("\n", "<br>", $pkg_excludes); ?></textarea>
+				<textarea class="form-control" name="pkg_excludes" id="pkg_excludes" rows="3" style="white-space: pre-wrap;"></textarea>
 			</div>
 		</div>
 
 		<div class="form-group row">
-			<label for="pkg_img1" class="col-sm-2 col-form-label">Package Image-1 :</label>
+			<label for="pkg_image1" class="col-sm-2 col-form-label">Package Image-1 :</label>
 			<div class="col-sm-4">
-				<input type="file" class="form-control-file" name="pkg_img1" id="pkg_img1" accept="image/x-png,image/jpg,image/jpeg">
+				<input type="file" class="form-control-file" name="pkg_image1" id="pkg_image1" accept="image/x-png,image/jpg,image/jpeg">
 			</div>
 		</div>
 
 		<div class="form-group row">
-			<label for="pkg_img2" class="col-sm-2 col-form-label">Package Image-2 :</label>
+			<label for="pkg_image2" class="col-sm-2 col-form-label">Package Image-2 :</label>
 			<div class="col-sm-4">
-				<input type="file" class="form-control-file" name="pkg_img2" id="pkg_img2" accept="image/x-png,image/jpg,image/jpeg">
+				<input type="file" class="form-control-file" name="pkg_image2" id="pkg_image3" accept="image/x-png,image/jpg,image/jpeg">
 			</div>
 		</div>
 
 		<div class="form-group row">
-			<label for="pkg_img3" class="col-sm-2 col-form-label">Package Image-3 :</label>
+			<label for="pkg_image3" class="col-sm-2 col-form-label">Package Image-3 :</label>
 			<div class="col-sm-4">
-				<input type="file" class="form-control-file" name="pkg_img3" id="pkg_img3" accept="image/x-png,image/jpg,image/jpeg">
+				<input type="file" class="form-control-file" name="pkg_image3" id="pkg_image3" accept="image/x-png,image/jpg,image/jpeg">
 			</div>
 		</div>
 
