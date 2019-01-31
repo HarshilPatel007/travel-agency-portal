@@ -46,13 +46,12 @@ if(isset($_POST['upload'])){
 	$file_extension = pathinfo($_FILES['pkg_thumbnail']['name'], PATHINFO_EXTENSION);
 
 
-// empty($pkg_thumbnail) || empty($pkg_image1) || empty($pkg_image2) || empty($pkg_image3) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes)
 	if( empty($pkg_thumbnail) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes) ){
 		$response = array(
 			"type" => "error",
 			"message" => $Error
 		);
-// or !in_array($file_extension1, $allowed_image_extension) or !in_array($file_extension2, $allowed_image_extension) or !in_array($file_extension3, $allowed_image_extension)
+		
 	}elseif(!in_array($file_extension, $allowed_image_extension)){
 		$response = array(
 			"type" => "error",

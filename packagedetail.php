@@ -3,7 +3,7 @@
 
 
 <?php
-    $result = mysqli_query($dbConnect, "SELECT * FROM packages WHERE dest_ID='" .$_GET["destid"]. "' ");
+    $result = mysqli_query($dbConnect, "SELECT * FROM packages WHERE id='" .$_GET["pkgid"]. "' ");
     $row = mysqli_num_rows($result);
 ?>
 
@@ -40,7 +40,7 @@
 <div id="destination-image">
   <div class="overlay"></div>
   <div class="text-center text-align-middle">
-    <h1 data-aos="fade-down" data-aos-duration="1500">Packages</h1>
+    <h1 data-aos="fade-down" data-aos-duration="1500">Package Detail</h1>
   </div>
 </div>
 
@@ -52,12 +52,20 @@
 
             <div class="col my-3">
                 <div class="card">
-                    <div class="card-header text-muted"><h6><?php echo nl2br($data['tour_duration']); ?></h6></div>
-                    <div id="card-body">
-                        <h5 class="card-title my-2 mx-2"><?php echo nl2br($data['pkg_name']); ?></h5>
-                        <a href="packagedetail.php?pkgid=<?php echo $data['id']; ?>" class="btn btn-primary my-2 mx-2">View Package Details</a>
-                    </div>
-                    <div class="card-footer text-muted"><?php echo nl2br($data['tour_price']); ?></div>
+                <?php echo "<img class='card-img-top' src='./admin/dashboard/pkgImage/".$data['pkg_thumbnail']."' width='294' height='500' alt='Destination Image'>"; ?>
+                    <h6 class="text-muted my-2 mx-2">Package Name :</h6>
+                    <h3 class="mx-2"><?php echo nl2br($data['pkg_name']);?></h3><br>
+
+                    <h6 class="text-muted my-2 mx-2">Package Itinerary :</h6>
+                    <p class="mx-2"><?php echo nl2br($data['pkg_itnry']);?></p><br>
+
+                    <h6 class="text-muted my-2 mx-2"><i class="fa fa-check" aria-hidden="true"></i> Package Includes :</h6>
+                    <p class="mx-2"><?php echo nl2br($data['pkg_include']); ?></p><br>
+
+                    <h6 class="text-muted my-2 mx-2"><i class="fa fa-times" aria-hidden="true"></i> Package Excludes :</h6>
+                    <p class="mx-2"><?php echo nl2br($data['pkg_exclude']);?></p>
+
+                    <a href="#" class="btn btn-primary my-2 mx-2">Book Package</a>
                 </div>
             </div>
 
