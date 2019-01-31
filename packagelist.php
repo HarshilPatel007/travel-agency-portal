@@ -45,13 +45,26 @@
 </div>
 
 <div class="container-fluid">
-    <?php
-        while($data=mysqli_fetch_array($result)){
-    ?>
-    <h5>Package Title : </h5><h1><?php echo nl2br($data['pkg_itnry']); ?></h1><br>
-    <?php
-        }
-    ?>
+    <div class="row my-3">
+        <?php
+            while($data=mysqli_fetch_array($result)){
+        ?>
+
+            <div class="col my-3">
+                <div class="card">
+                    <div class="card-header text-muted"><h6><?php echo nl2br($data['tour_duration']); ?></h6></div>
+                    <div id="card-body">
+                        <h5 class="card-title my-2 mx-2"><?php echo nl2br($data['pkg_name']); ?></h5>
+                        <a href="#" class="btn btn-primary my-2 mx-2">View Package Details</a>
+                    </div>
+                    <div class="card-footer text-muted"><?php echo nl2br($data['tour_price']); ?></div>
+                </div>
+            </div>
+
+        <?php
+            }
+        ?>
+    </div>
 </div>
 
 

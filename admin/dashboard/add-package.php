@@ -25,9 +25,6 @@ $imageError = '<br><br><div class="alert alert-info" role="alert">Only JPG, JPEG
 if(isset($_POST['upload'])){
 	// Get images name
 	$pkg_thumbnail = $_FILES['pkg_thumbnail']['name'];
-	$pkg_image1 = $_FILES['pkg_image1']['name'];
-	$pkg_image2 = $_FILES['pkg_image2']['name'];
-	$pkg_image3 = $_FILES['pkg_image3']['name'];
 
 	// Get values from textbox and textarea.
 	$pkg_name = mysqli_real_escape_string($dbConnect, $_POST['pkg_name']);
@@ -41,47 +38,37 @@ if(isset($_POST['upload'])){
 
 	// image file directory
 	$target = "pkgImage/".basename($pkg_thumbnail);
-	$target1 = "pkgImage/".basename($pkg_image1);
-	$target2 = "pkgImage/".basename($pkg_image2);
-	$target3 = "pkgImage/".basename($pkg_image3);
+
 
 	$allowed_image_extension = array("png","jpg","jpeg","PNG","JPG","JPEG");
 
 	// Get image file extension
 	$file_extension = pathinfo($_FILES['pkg_thumbnail']['name'], PATHINFO_EXTENSION);
-	$file_extension1 = pathinfo($_FILES['pkg_image1']['name'], PATHINFO_EXTENSION);
-	$file_extension2 = pathinfo($_FILES['pkg_image2']['name'], PATHINFO_EXTENSION);
-	$file_extension3 = pathinfo($_FILES['pkg_image3']['name'], PATHINFO_EXTENSION);
+
 
 // empty($pkg_thumbnail) || empty($pkg_image1) || empty($pkg_image2) || empty($pkg_image3) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes)
-	if( empty($pkg_thumbnail) || empty($pkg_image1) || empty($pkg_image2) || empty($pkg_image3) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes) ){
+	if( empty($pkg_thumbnail) || empty($pkg_name) || empty($pkg_duration) || empty($pkg_price) || empty($pkg_itinerary) || empty($pkg_includes) || empty($pkg_excludes) ){
 		$response = array(
 			"type" => "error",
 			"message" => $Error
 		);
 // or !in_array($file_extension1, $allowed_image_extension) or !in_array($file_extension2, $allowed_image_extension) or !in_array($file_extension3, $allowed_image_extension)
-	}elseif(!in_array($file_extension, $allowed_image_extension) or !in_array($file_extension1, $allowed_image_extension) or !in_array($file_extension2, $allowed_image_extension) or !in_array($file_extension3, $allowed_image_extension)){
+	}elseif(!in_array($file_extension, $allowed_image_extension)){
 		$response = array(
 			"type" => "error",
 			"message" => $imageError
 		);
 
-	}elseif(file_exists($target) || file_exists($target1) || file_exists($target2) || file_exists($target3)){
+	}elseif(file_exists($target)){
 
 		$random_digit = rand(000000000,999999999);
 
 		$newImage = $random_digit."_".$pkg_thumbnail;
-		$newImage1 = $random_digit."_".$pkg_image1;
-		$newImage2 = $random_digit."_".$pkg_image2;
-		$newImage3 = $random_digit."_".$pkg_image3;
 
 		$newTarget = "pkgImage/".basename($newImage);
-		$newTarget1 = "pkgImage/".basename($newImage1);
-		$newTarget2 = "pkgImage/".basename($newImage2);
-		$newTarget3 = "pkgImage/".basename($newImage3);
 
 
-			$sql = "INSERT INTO packages (dest_ID, pkg_name, pkg_thumbnail, pkg_image1, pkg_image2, pkg_image3, tour_duration, tour_price, pkg_itnry, pkg_include, pkg_exclude) VALUES ('$destination_name', '$pkg_name', '$newImage', '$newImage1', '$newImage2', '$newImage3', '$pkg_duration', '$pkg_price', '$pkg_itinerary', '$pkg_includes', '$pkg_excludes')";
+			$sql = "INSERT INTO packages (dest_ID, pkg_name, pkg_thumbnail, tour_duration, tour_price, pkg_itnry, pkg_include, pkg_exclude) VALUES ('$destination_name', '$pkg_name', '$newImage', '$pkg_duration', '$pkg_price', '$pkg_itinerary', '$pkg_includes', '$pkg_excludes')";
 			// execute query
 			if(mysqli_query($dbConnect, $sql)){
 				$response = array(
@@ -94,7 +81,7 @@ if(isset($_POST['upload'])){
 					"message" => $Fail
 				);
 			}
-			if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $newTarget) or move_uploaded_file($_FILES['pkg_image1']['tmp_name'], $newTarget1) or move_uploaded_file($_FILES['pkg_image2']['tmp_name'], $newTarget2) or move_uploaded_file($_FILES['pkg_image3']['tmp_name'], $newTarget3)){
+			if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $newTarget)){
 				$response = array(
 					"type" => "error",
 					"message" => $Success
@@ -107,7 +94,7 @@ if(isset($_POST['upload'])){
 			}
 
 	}else{
-		$sql = "INSERT INTO packages (dest_ID, pkg_name, pkg_thumbnail, pkg_image1, pkg_image2, pkg_image3, tour_duration, tour_price, pkg_itnry, pkg_include, pkg_exclude) VALUES ('$destination_name', '$pkg_name', '$pkg_thumbnail', '$pkg_image1', '$pkg_image2', '$pkg_image3', '$pkg_duration', '$pkg_price', '$pkg_itinerary', '$pkg_includes', '$pkg_excludes')";
+		$sql = "INSERT INTO packages (dest_ID, pkg_name, pkg_thumbnail, tour_duration, tour_price, pkg_itnry, pkg_include, pkg_exclude) VALUES ('$destination_name', '$pkg_name', '$pkg_thumbnail', '$pkg_duration', '$pkg_price', '$pkg_itinerary', '$pkg_includes', '$pkg_excludes')";
 		// execute query
 		if(mysqli_query($dbConnect, $sql)){
 			$response = array(
@@ -120,7 +107,7 @@ if(isset($_POST['upload'])){
 				"message" => $Fail
 			);
 		}
-		if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $target) or move_uploaded_file($_FILES['pkg_image1']['tmp_name'], $target1) or move_uploaded_file($_FILES['pkg_image2']['tmp_name'], $target2) or move_uploaded_file($_FILES['pkg_image3']['tmp_name'], $target3)){
+		if(move_uploaded_file($_FILES['pkg_thumbnail']['tmp_name'], $target)){
 			$response = array(
 				"type" => "error",
 				"message" => $Success
@@ -235,7 +222,7 @@ if(isset($_POST['upload'])){
 			</div>
 		</div>
 
-		<div class="form-group row">
+		<!-- <div class="form-group row">
 			<label for="pkg_image1" class="col-sm-2 col-form-label">Package Image-1 :</label>
 			<div class="col-sm-4">
 				<input type="file" class="form-control-file" name="pkg_image1" id="pkg_image1" accept="image/x-png,image/jpg,image/jpeg">
@@ -254,7 +241,7 @@ if(isset($_POST['upload'])){
 			<div class="col-sm-4">
 				<input type="file" class="form-control-file" name="pkg_image3" id="pkg_image3" accept="image/x-png,image/jpg,image/jpeg">
 			</div>
-		</div>
+		</div> -->
 
 
 		

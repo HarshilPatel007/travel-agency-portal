@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 17, 2019 at 04:25 PM
+-- Generation Time: Jan 23, 2019 at 06:45 PM
 -- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -81,9 +81,29 @@ CREATE TABLE `packages` (
   `id` int(20) NOT NULL,
   `dest_ID` int(20) NOT NULL,
   `pkg_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pkg_image` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pkg_thumbnail` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL
+  `pkg_thumbnail` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_image1` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_image2` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_image3` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tour_duration` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tour_price` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_itnry` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_include` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pkg_exclude` longtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `dest_ID`, `pkg_name`, `pkg_thumbnail`, `pkg_image1`, `pkg_image2`, `pkg_image3`, `tour_duration`, `tour_price`, `pkg_itnry`, `pkg_include`, `pkg_exclude`) VALUES
+(1, 73, 'explore the great tajmahel', '522642140_1.jpg', '522642140_', '522642140_', '522642140_', '12Days and 12 Nights', 'Rs. : 1,00,000', 'dsf\r\nsdf\r\nfsd', 'dsf\r\nsdf\r\ndsf', 'sdf\r\nsdf\r\nsdf'),
+(2, 73, 'test', 'wall10.jpg', 'wall19.jpg', 'wall21.jpg', 'wall24.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'werewr\r\newrwer\r\newrwer\r\newrewr\r\newrwee', 'erewrewr\r\nerewrerre\r\newrewrer', 'rewrewr\r\newr\r\new\r\nr\r\ner\r\ner\r\ne\r\nr'),
+(3, 73, 'test1', '1.jpg', '4.jpg', '18.jpg', '73.jpg', '12Days amd 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndsf\r\ndsf\r\nsdf\r\nsdf\r\ndsf\r\nsdf', 'fdg\r\nfdg\r\ndfg\r\ndfg\r\ndfg', 'fdg\r\ndfg\r\ndfg\r\ndfg\r\ndfg\r\ndfg'),
+(4, 76, 'test2', '800452091_1.jpg', '800452091_4.jpg', '800452091_111.jpg', '800452091_113.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndsf\r\ndsf\r\ndf\r\ndf', 'dfg\r\nfdg\r\ndfg\r\ng', 'gd\r\nfgdf\r\nfg\r\ndfg\r\ndfg'),
+(5, 74, 'test2', '414173794_1.jpg', '414173794_117.jpg', '414173794_118.jpg', '414173794_119.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndf\r\ndsf\r\ndsf\r\nsdf\r\ndsf', 'fg\r\nfdg\r\ndfg\r\ndf\r\ng\r\ndf', 'fdg\r\ndfg\r\ndfg\r\ndf\r\ngdf'),
+(6, 72, 'test5', '2.jpg', '3.jpg', '4.jpg', '24.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndsf\r\ndf\r\ndsf\r\nsdf', 'dfg\r\nfdg\r\ndfg\r\ndfg', 'fdg\r\ndfg\r\ndfg\r\ndfg'),
+(7, 69, 'test7', '45.jpg', '46.jpg', '47.jpg', '48.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'df\r\ndsf\r\ndsf\r\ndsf', 'sdf\r\ndsf\r\ndf\r\nsdf', 'sdf\r\ndsf\r\ndf\r\nsdf');
 
 --
 -- Indexes for dumped tables
@@ -121,13 +141,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `dest_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
