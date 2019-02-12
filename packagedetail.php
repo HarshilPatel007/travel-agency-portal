@@ -65,7 +65,32 @@
                     <h6 class="text-muted my-2 mx-2"><i class="fa fa-times" aria-hidden="true"></i> Package Excludes :</h6>
                     <p class="mx-2"><?php echo nl2br($data['pkg_exclude']);?></p>
 
-                    <a href="#" class="btn btn-primary my-2 mx-2">Book Package</a>
+                    <h6 class="text-muted my-2 mx-2"> Tour Duration :</h6>
+                    <p class="mx-2"><?php echo nl2br($data['tour_duration']);?></p>
+
+                    <h6 class="text-muted my-2 mx-2"> Package Price :</h6>
+                    <p class="mx-2"><?php echo nl2br($data['tour_price']);?></p>
+
+                    <?php
+                        if(isset($_POST['bookbtn'])){
+
+                            session_start();
+                            
+                            if(isset($_SESSION['users_id']) && isset($_SESSION['users_name']) && isset($_SESSION['users_email'])){
+                                // header("Location: ../index.php");
+                                echo "logged in";
+                        
+                            }else{
+                                echo "please register!";
+                            }
+                        
+                        }else{
+
+                        }
+                    ?>
+                    <form action="" method="post">
+                        <button type="submit" name="bookbtn" class="btn btn-primary my-2 mx-2">Book Package</button>
+                    </form>
                 </div>
             </div>
 
