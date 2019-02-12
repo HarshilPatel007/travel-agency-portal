@@ -81,7 +81,8 @@
                                 echo "logged in";
                         
                             }else{
-                                echo "please register!";
+                                echo "please register to book!";
+
                             }
                         
                         }else{
