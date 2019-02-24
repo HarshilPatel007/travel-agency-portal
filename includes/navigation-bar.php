@@ -12,7 +12,7 @@
         <a class="nav-link" href="destinations.php">Destinations</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Gallery</a>
+        <a class="nav-link" href="service.php">Services</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>

@@ -81,7 +81,8 @@
                                 echo "logged in";
                         
                             }else{
-                                echo "please register to book!";
+                                // echo "please register to book!";
+                                echo '<script>alert("please register first to book package.")</script>';
 
                             }
                         
