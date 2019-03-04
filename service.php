@@ -1,5 +1,16 @@
 <?php include_once "includes/functions.php"; ?>
+<?php
 
+    session_start();
+    
+    if(isset($_SESSION['user_id']) && isset($_SESSION['name']) && isset($_SESSION['email'])){
+        include_once '../includes/dbconnect.php';
+    }else{
+        header("Location: ../../404.php");
+        exit();
+    }
+
+?>
 
 
 
@@ -63,47 +74,92 @@
     </div>
 
     <div>
-      <h1 class="text-center little-words" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">Customized Tour Package</h1>
-      <h6 class="text-center text-muted" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">We are happy to say that, we also offer a fully customized tour according to your choice and need. <br><br> Please feel this form as per your need to tell us your choice. <br><br><b>Note:</b> Please register and login before feeling the form.</h6>
+      <!-- <h1 class="text-center little-words" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">Customized Tour Package</h1>
+      <h6 class="text-center text-muted" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">We are happy to say that, we also offer a fully customized tour according to your choice and need. <br><br> Please feel this form as per your need to tell us your choice. <br><br><b>Note:</b> Please register and login before feeling the form.</h6> -->
 
 
 
 
-      <?php
+      <!-- <?php
         if (isset($_POST['sbmtbtn'])) {
-          session_start();
+          // session_start();
 
           if(isset($_SESSION['users_id']) && isset($_SESSION['users_name']) && isset($_SESSION['users_email'])){
-            echo "logged in";
+            
+
+            $Error = '<br><br><div class="alert alert-info" role="alert">Field can\'t be empty.</div>';
+            $Success = '<br><br><div class="alert alert-success" role="alert">Data inserted Sucessfuly.</div>';
+            $Fail = '<br><br><div class="alert alert-danger" role="alert">There is an error occurred while inserting the data.</div>';
+            
+            
+            $destination_name = mysqli_real_escape_string($dbConnect, $_POST['destination_name']);
+            $total_persons = mysqli_real_escape_string($dbConnect, $_POST['total_persons']);
+            $total_days = mysqli_real_escape_string($dbConnect, $_POST['total_days']);
+            $anyOther_details = mysqli_real_escape_string($dbConnect, $_POST['anyOther_details']);
+            $userName = $_SESSION['users_name'];
+            $userId = $_SESSION['users_id'];
+
+            // if( empty($destination_name) || empty($total_persons) || empty($total_days) || empty($anyOther_details) ){
+
+            //   $response = array(
+            //     "type" => "error",
+            //     "message" => $Error
+            //   );
+
+            // }else{
+
+              $sql = "INSERT INTO pkg_request (place_name, persons, tour_days) VALUES ('$destination_name', '$total_persons', '$total_days', '$anyOther_details')";
+              // execute query
+              if(mysqli_query($dbConnect, $sql)){
+                $response = array(
+                  "type" => "error",
+                  "message" => $Success
+                );
+              }else{
+                $response = array(
+                  "type" => "error",
+                  "message" => $Fail
+                );
+              }
+
+            // }
+
           }else{
               // echo "please register to book!";
-              echo '<script>alert("please register first to send customized package details.")</script>';
+              echo '<script>alert("please register and login first to send customized package details.")</script>';
           }
         }else{
 
         }
-      ?>
-      <form action="" method="POST">
-        <div class="container my-4" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+      ?> -->
+      <!-- <form action="service.php" method="POST">
+        <div class="container my-4" >
           <div class="form-group">
-            <label for="exampleInputEmail1">Where you want to go?</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter here">
+            <label for="destination_name">Where you want to go?</label>
+            <input type="text" class="form-control" id="destination_name" name="destination_name" aria-describedby="emailHelp" placeholder="Enter here">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Number of person?</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter here">
+            <label for="total_persons">Number of person?</label>
+            <input type="text" class="form-control" id="total_persons" name="total_persons" placeholder="Enter here">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Number of days?</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter here">
+            <label for="total_days">Number of days?</label>
+            <input type="text" class="form-control" id="total_days" name="total_days" placeholder="Enter here">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Any other requirments?</label>
-            <textarea class="form-control" name="pkg_excludes" id="pkg_excludes" rows="3" style="white-space: pre-wrap;"></textarea>
+            <label for="anyOther_details">Any other requirments?</label>
+            <textarea class="form-control" name="anyOther_details" id="anyOther_details" rows="3" style="white-space: pre-wrap;"></textarea>
           </div>
           <button type="submit" class="btn btn-primary" name="sbmtbtn">Submit</button>
+
         </div>
-      </form>
+      </form> -->
+
+      <!-- <?php if(!empty($response)) { ?>
+          <div class="response <?php echo $response["type"]; ?> ">
+            <?php echo $response["message"]; ?>
+          </div>
+          <?php } ?> -->
     
     </div>
 </div>
