@@ -1,16 +1,4 @@
 <?php include_once "includes/functions.php"; ?>
-<?php
-
-    session_start();
-    
-    if(isset($_SESSION['user_id']) && isset($_SESSION['name']) && isset($_SESSION['email'])){
-        include_once '../includes/dbconnect.php';
-    }else{
-        header("Location: ../../404.php");
-        exit();
-    }
-
-?>
 
 
 
