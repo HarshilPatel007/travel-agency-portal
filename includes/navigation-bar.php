@@ -17,9 +17,24 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="./users/">Login/Register</a>
-      </li>
+
+      <?php
+
+          session_start();
+
+          if(isset($_SESSION['users_id']) && isset($_SESSION['users_name']) && isset($_SESSION['users_email'])){
+              include_once '../includes/dbconnect.php';
+              echo '<li class="nav-item">';
+              echo '<a class="nav-link" href="dashboard.php">Dashboard</a>';
+              echo '</li>';
+          }else{
+
+            echo '<li class="nav-item">';
+            echo '<a class="nav-link" href="./users/">Login/Register</a>';
+            echo '</li>';
+          }
+
+      ?>
     </ul>
   </div>
 </nav>

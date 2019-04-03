@@ -78,7 +78,26 @@
                             
                             if(isset($_SESSION['users_id']) && isset($_SESSION['users_name']) && isset($_SESSION['users_email'])){
                                 // header("Location: ../index.php");
-                                echo "logged in";
+                                echo "logged in as a ".$_SESSION['users_name'];
+
+                                $userName1 = $_SESSION['users_name'];
+                                $userID1 = $_SESSION['users_id'];
+                                $pkgName1 = $data['pkg_name'];
+                                $tourDays1 = $data['tour_duration'];
+
+                                $Query1 = "INSERT INTO pkg_request (place_name, tour_days, users, users_id) VALUES ('".$pkgName1."', '".$tourDays1."', '".$userName1."', '".$userID1."')";
+
+                                if(mysqli_query($dbConnect, $Query1)){
+
+                                    echo '<script>alert("Package Booked Sucessfuly!")</script>';
+
+                                }else{
+
+                                    echo '<script>alert("Error!")</script>';
+
+                                }
+
+
                         
                             }else{
                                 // echo "please register to book!";
@@ -91,7 +110,7 @@
                         }
                     ?>
                     <form action="" method="post">
-                        <button type="submit" name="bookbtn" class="btn btn-primary my-2 mx-2">Book Package</button>
+                        <button type="submit" id="bookbtn" name="bookbtn" class="btn btn-primary my-2 mx-2">Book Package</button>
                     </form>
                 </div>
             </div>

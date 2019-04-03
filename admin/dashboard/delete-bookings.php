@@ -15,18 +15,16 @@
 <?php
 
     $idReq = $_REQUEST['id'];
-    $imageReq = $_REQUEST['image'];
+    $UserReq = $_REQUEST['users'];
     
 
-    if(isset($idReq) && isset($imageReq)){
-        $query = "DELETE FROM destinations WHERE dest_id=$idReq";
+    if(isset($idReq) && isset($UserReq)){
+        $query = "DELETE FROM pkg_request WHERE id=$idReq";
 
         if(mysqli_query($dbConnect,$query)){
-            $target = "image/".basename($imageReq);
-            unlink($target);
+
             header("Location: view-destination.php");
         }else{
-
             echo mysql_error();
         }
     }else{

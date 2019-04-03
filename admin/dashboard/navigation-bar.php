@@ -26,7 +26,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bookings</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">View Bookings</a>
+          <a class="dropdown-item" href="view-bookings.php">View Bookings</a>
         </div>
       </li>
 
