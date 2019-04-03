@@ -49,7 +49,7 @@ $result = mysqli_query($dbConnect, "SELECT id,dest_ID,pkg_name,tour_duration,tou
 
 <div class="container p-5">
 
-    <h3>View Destination</h3>
+    <h3>View Packages</h3>
 
     <table class="table table-bordered table-hover">
         <thead class="thead-dark">
