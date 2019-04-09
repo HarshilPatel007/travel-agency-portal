@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['registerbtn'])){
+//if(isset($_POST['registerbtn'])){
 
     include_once 'dbconnect.php';
 
@@ -50,9 +50,9 @@ if(isset($_POST['registerbtn'])){
         }
     }
 
-}else{
-    header("Location: ../../404.php");
-    exit();
-}
+// }else{
+//     header("Location: ../../404.php");
+//     exit();
+// }
 
 ?>

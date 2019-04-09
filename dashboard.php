@@ -15,8 +15,8 @@
 
 <?php
 
-
-$result = mysqli_query($dbConnect, "SELECT id, place_name, tour_days, users, users_id FROM pkg_request ORDER BY id desc");
+$userID = $_SESSION['users_id'];
+$result = mysqli_query($dbConnect, "SELECT id, place_name, tour_days, users, users_id FROM pkg_request WHERE users_id=$userID ORDER BY id desc");
 ?>
 
 

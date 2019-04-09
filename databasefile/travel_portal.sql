@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 04, 2019 at 12:55 PM
--- Server version: 10.3.12-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Apr 03, 2019 at 10:18 AM
+-- Server version: 10.3.13-MariaDB
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -94,13 +94,14 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`id`, `dest_ID`, `pkg_name`, `pkg_thumbnail`, `tour_duration`, `tour_price`, `pkg_itnry`, `pkg_include`, `pkg_exclude`) VALUES
-(1, 73, 'explore the great tajmahel', '522642140_1.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'dsf\r\nsdf\r\nfsd', 'dsf\r\nsdf\r\ndsf', 'sdf\r\nsdf\r\nsdf'),
-(2, 73, 'test', 'wall10.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'werewr\r\newrwer\r\newrwer\r\newrewr\r\newrwee', 'erewrewr\r\nerewrerre\r\newrewrer', 'rewrewr\r\newr\r\new\r\nr\r\ner\r\ner\r\ne\r\nr'),
-(3, 73, 'test1', '1.jpg', '12Days amd 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndsf\r\ndsf\r\nsdf\r\nsdf\r\ndsf\r\nsdf', 'fdg\r\nfdg\r\ndfg\r\ndfg\r\ndfg', 'fdg\r\ndfg\r\ndfg\r\ndfg\r\ndfg\r\ndfg'),
-(4, 76, 'test2', '800452091_1.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndsf\r\ndsf\r\ndf\r\ndf', 'dfg\r\nfdg\r\ndfg\r\ng', 'gd\r\nfgdf\r\nfg\r\ndfg\r\ndfg'),
-(5, 74, 'test2', '414173794_1.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndf\r\ndsf\r\ndsf\r\nsdf\r\ndsf', 'fg\r\nfdg\r\ndfg\r\ndf\r\ng\r\ndf', 'fdg\r\ndfg\r\ndfg\r\ndf\r\ngdf'),
-(6, 72, 'test5', '2.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'sdf\r\ndsf\r\ndf\r\ndsf\r\nsdf', 'dfg\r\nfdg\r\ndfg\r\ndfg', 'fdg\r\ndfg\r\ndfg\r\ndfg'),
-(7, 69, 'test7', '45.jpg', '12Days and 12 Nights', 'Rs. : 1,00,000', 'df\r\ndsf\r\ndsf\r\ndsf', 'sdf\r\ndsf\r\ndf\r\nsdf', 'sdf\r\ndsf\r\ndf\r\nsdf');
+(8, 73, 'Jodhpur Rajasthan', 'jaipur-tour.jpg', '4 Days and 1 Night', 'Rs. : 10,000', 'Day 1 : Pick-up from Ahmedabad. Drive towards Jodhpur (444 Kms/ 8 Hrs). Overnight Jodhpur\r\nDay 2 : Visit to Mehrangarh Fort and other places. Then depart for Jaisalmer. Overnight Jaisalmer\r\nDay 3 : Visit to Jaisalmer Fort. Visit Khuri for desert safari. Overnight Jaisalmer\r\nDay 4 : Visit to Bada Bagh Shrine. Depart for Ahmedabad', 'Hotel Stay\r\nFood(as per package)\r\nAir Ticket', 'Personal expense\r\nPassport OR VISA'),
+(9, 73, 'Spiritual Gujarat', 'siv.jpg', '8 Night and 9 Days', 'Rs. : 90,000', 'Day 1: Ahmedabad – Jamnagar\r\nDay 2: Jamnagar – Dwarka\r\nDay 3: Dwarka – Porbandar - Somnath\r\nDay 4: Somnath – Diu\r\nDay 5: Diu – SasanGir\r\nDay 6: Junagadh – Virpur – Gondal – Ahmedabad', '07 Breakfast at the hotels mentioned\r\nAccommodation for 7nights 8 days on double sharing basis\r\nAll Transfers, excursions & sightseeing as per the itinerary by private TOYOTA Innova in Standard Package\r\nAll Transport & Hotels Related Taxes', 'Personal expense\r\nPassport OR VISA'),
+(10, 76, 'American Discovery East & West', 'Washington-4.jpg', '11 Nights / 12 Days', 'Rs. : 5,00,000', 'DAY 1: Arrive New York - The Big Apple\r\nDAY 2: New York - Statue Of Liberty - City Tour - Empire State Building 86th Floor Observatory\r\nDAY 3: New York - Washington D.C. - Smithsonian Air And Space Museum - City Tour\r\nDAY 4: Washington - Hersheys - Niagara Falls USA\r\nDAY 5: Niagara Falls - Maid Of The Mist - Cave Of The Winds\r\nDAY 6: Niagara - Las Vegas\r\nDAY 7: Las Vegas - Free Day\r\nDAY 8: Las Vegas - Los Angeles - City Tour\r\nDAY 9: Universal Studios\r\nDAY 10: Los Angeles - San Francisco\r\nDAY 11: San Francisco - Bay Cruise - City Tour\r\nDAY 12: San Francisco - Back Home', 'Baggage handling fee charged by the Internal Airlines for travel within USA. One check inn baggage of 20 kg per person.\r\nInternal Airfare\r\nInternational flight.\r\nUSA Visa Charges', '5% G.S.T will be applicable on Tour Cost.\r\nAny additional Domestic Internal Flight\r\nAny personal expenses i.e. Laundry, Phone etc.\r\nAny Surcharge if applicable on your Travel Dates.\r\nAnything which is not Mentioned in Inclusion.\r\nDeviation charges levied by Airlines\r\nMedical Insurance\r\nPorterage – passengers need to carry their own Luggage at Airport, Hotel , Cruise Port & Coaches\r\nTips 03 USD per person per day'),
+(11, 76, 'American Explorer– East Only', 'Montreal.jpg', '9 Nights / 10 Days', 'Rs. : 3,00,000', 'DAY 1: Arrive New York - The Big Apple\r\nDAY 2: Statue Of Liberty - Empire State Building - New York City Tour - Times Square\r\nDAY 3: New York - Washington D.C - City Tour\r\nDAY 4: Washington - Hershey’s Chocolate World - Niagara Falls Canada\r\nDAY 5: Niagara Falls\r\nDAY 6: Niagara Falls - Toronto\r\nDAY 7: Toronto - 1000 Islands - Ottawa\r\nDAY 8: Ottawa - Montreal\r\nDAY 9: Montreal - Quebec City - Montreal\r\nDAY 10: Back Home', 'Baggage handling fee charged by the Internal Airlines for travel within USA. One check inn baggage of 20 kg per person.\r\nEconomy Class Return Airfare\r\nInternal Airfare\r\nInternational flight.\r\nMeals as per Itinerary\r\nUSA & Canada FIT Visa charges', '5% G.S.T will be applicable on Tour Cost.\r\nAny additional Domestic Internal Flight\r\nAny Surcharge if applicable on your Travel Dates.\r\nAnything which is not Mentioned in Inclusion.\r\nDeviation charges levied by Airlines\r\nMedical Insurance\r\nPersonal expenses such as alcoholic and other beverages, telephone calls, tips and laundry\r\nPorterage – passengers need to carry their own Luggage at Airport, Hotel , Cruise Port & Coaches\r\nTips 03 USD per person per day'),
+(12, 75, 'Jewels of Britain', 'backingham_palace.jpg', '7 Nights / 8 Days', 'Rs. : 3,50,000', 'DAY 1: India - London\r\nDAY 2: London\r\nDAY 3: London\r\nDAY 4: London - Edinburgh\r\nDAY 5: Edinburgh\r\nDAY 6: Edinburgh\r\nDAY 7: Edinburgh\r\nDAY 8: Edinburgh - Glasgow - India', '07 Continental Cold Buffet Breakfast\r\nAll Airport to Hotel and Hotel to Station transfers on Private Basis\r\nOne way 2nd Class train from London to Edinburgh', '5% GST on total tour cost\r\nAirfare & Taxes\r\nAll Museums and Monuments are from outside unless mentioned in inclusions.\r\nAny personal expenses i.e. Laundry, Tips, And Phone calls etc.\r\nAny surcharge applicable during your travel dates.\r\nAnything which is not mentioned in Inclusions.\r\nCity tax – to be paid directly at the hotel.\r\nCost of Sightseeing (Except Above)\r\nNo Porterage Included. You have to carry your luggage on your own to your room.\r\nTravel Insurance\r\nVisa Cost'),
+(13, 75, 'British Explorer', 'City-Tour-4.jpg', '8 Nights / 9 Days', 'Rs. : 5,00,000', 'DAY 1: India - London\r\nDAY 2: London\r\nDAY 3: London\r\nDAY 4: London - York\r\nDAY 5: York - Howard Castle - Windermere\r\nDAY 6: Windermere - Edinburgh\r\nDAY 7: Edinburgh\r\nDAY 8: Edinburgh\r\nDAY 9: Edinburgh - Glasgow - India', 'One Way Hotel to Airport Transfer in Edinburgh on SIC Basis', '5% G.S.T will be applicable on Tour Cost.\r\nAny other services not mentioned above\r\nAny surcharge applicable during your travel dates.\r\nCost of Lunch & Dinner (Expect mentioned above)\r\nEntrance to Sightseeing (Except Above)\r\nInternational Airfare & Visa Charges\r\nMedical Insurance\r\nPersonal expenses such as alcoholic and other beverages, telephone calls, tips and laundry\r\nTips for Guide & Driver\r\nTourist city tax payable directly by the passenger only at each hotel.\r\nTransfers to the departure point of Tours and Attraction.'),
+(14, 74, ' Singapore with Genting Dream Cruise', 'Singapore-Flyer.jpg', '6 Nights / 7 Days', 'Rs. : 3,00,000', 'DAY 1 to 4: Singapore\r\nDAY 5: Singapore - Cruise\r\nDAY 6: Cruise\r\nDAY 7: Back Home', 'All Transfer and Sightseeing on SIC Basis\r\nEconomy Class Return Airfare\r\nSingapore Visa Fees', '5% G.S.T will be applicable on Tour Cost.\r\nAny other item except package rates includes\r\nCost of lunch and dinner (Except Above)\r\nCost of sightseeing except above\r\nCruise gratuities per night 21sgd per person directly payable\r\nGuide tips & Portages\r\nPersonal expenses such as alcoholic and other beverages, telephone calls, tips and laundry\r\nTravel Insurance\r\nupplement cost applicable for Airport transfers between 2200hrs to 0730hrs\r\nUsage of Minibar or Paid Channels'),
+(15, 74, 'Southeast Delight Singapore Malaysia', 'batu-caves.jpg', '6 Nights / 7 Days', 'Rs. : 2,50,000', 'DAY 1: Singapore\r\nDAY 2: Singapore\r\nDAY 3: Singapore\r\nDAY 4: Singapore - Kuala Lumpur - ( Approx 400 Kilometers )\r\nDAY 5: Kuala Lumpur - Genting Highlands - Kuala Lumpur\r\nDAY 6: Kuala Lumpur - Sunway Lagoon - Kuala Lumpur\r\nDAY 7: Kuala Lumpur - Singapore - Back Home', 'Economy Class Return Airfare\r\nIn House Gujarati Tour Manager\r\nSingapore, Malaysia Visa Charges', '5% G.S.T will be applicable on Tour Cost.\r\nAny increase in Aiport taxes\r\nAny increase in Government Tax, Fuel Charges or any other Tax.\r\nAny other item except package rates includes\r\nAny Surcharge if applicable on your Travel Dates.\r\nGuide tips & Portages\r\nPersonal expenses such as alcoholic and other beverages, telephone calls, tips and laundry\r\nTravel Insurance\r\nUsage of Minibar or Paid Channels');
 
 -- --------------------------------------------------------
 
@@ -111,11 +112,17 @@ INSERT INTO `packages` (`id`, `dest_ID`, `pkg_name`, `pkg_thumbnail`, `tour_dura
 CREATE TABLE `pkg_request` (
   `id` int(20) NOT NULL,
   `place_name` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `persons` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `tour_days` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `users` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `users_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pkg_request`
+--
+
+INSERT INTO `pkg_request` (`id`, `place_name`, `tour_days`, `users`, `users_id`) VALUES
+(1, 'explore the great tajmahel', '12Days and 12 Nights', 'harshil patel', 1);
 
 -- --------------------------------------------------------
 
@@ -192,13 +199,13 @@ ALTER TABLE `destinations`
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pkg_request`
 --
 ALTER TABLE `pkg_request`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
