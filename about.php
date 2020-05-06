@@ -62,7 +62,7 @@
   <div class="row p-5">
     <div class="col-xs-12 col-sm-6 col-md-3" data-aos="flip-left" data-aos-easing="linear" data-aos-duration="1500">
       <div class="card p-1" style="width: 18rem;">
-        <img class="card-img-top" src="team/harshil1.jpg" alt="Card image cap" width="180" height="286">
+        <img class="card-img-top" src="team/blank-user.jpg" alt="Card image cap" width="180" height="286">
           <div class="card-body text-center">
             <h5 class="card-title">Harshil Patel</h5>
             <p class="card-text">Founder & CEO</p>
@@ -76,7 +76,7 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500">
       <div class="card p-1" style="width: 18rem;">
-        <img class="card-img-top" src="team/hasit1.jpg" alt="Card image cap" width="180" height="286">
+        <img class="card-img-top" src="team/blank-user.jpg" alt="Card image cap" width="180" height="286">
           <div class="card-body text-center">
             <h5 class="card-title">Hasit Modi</h5>
             <p class="card-text">Travel Manager</p>
@@ -90,7 +90,7 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3" data-aos="flip-left" data-aos-easing="linear" data-aos-duration="1500">
       <div class="card p-1" style="width: 18rem;">
-        <img class="card-img-top" src="team/jani1.png" alt="Card image cap" width="180" height="286">
+        <img class="card-img-top" src="team/blank-user.jpg" alt="Card image cap" width="180" height="286">
           <div class="card-body text-center">
             <h5 class="card-title">Jani Dhruv</h5>
             <p class="card-text">CFO</p>
@@ -104,7 +104,7 @@
 
     <div class="col-xs-12 col-sm-6 col-md-3" data-aos="flip-right" data-aos-easing="linear" data-aos-duration="1500">
       <div class="card p-1" style="width: 18rem;">
-        <img class="card-img-top" src="team/krupali.jpg" alt="Card image cap" width="180" height="286">
+        <img class="card-img-top" src="team/blank-user.jpg" alt="Card image cap" width="180" height="286">
           <div class="card-body text-center">
             <h5 class="card-title">Krupali Gupta</h5>
             <p class="card-text">HR Head</p>
